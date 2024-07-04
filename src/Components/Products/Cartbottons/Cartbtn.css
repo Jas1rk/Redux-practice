@@ -36,8 +36,8 @@
   transition: all 0.3s ease-in-out;
 }
 
-.product-container.active .add-cart-button,
-.product-container:hover .add-cart-button,
+.product-container.active .add-cart-btn,
+.product-container:hover .add-cart-btn,
 .product-container.active .after-cart,
 .product-container:hover .after-cart {
   top: -30px;

@@ -9,14 +9,38 @@ const cartSlice = createSlice({
   name: "cartSlice",
   initialState: INITIAL_State,
   reducers: {
-    addToCart: (state) => {
-      state.cartCount = 1;
+    addToCart: (state, action) => {
+      const exist = state.cartItems.find(
+        (item) => item?.id === action.payload.id
+      );
+      if (exist) {
+        state.cartItems.forEach((data) => {
+          if (data.id === action.payload.id) {
+            data.count = 1;
+          }
+        });
+      } else {
+        state.cartItems.push({
+          ...action.payload,
+          count: 1,
+        });
+      }
     },
-    increment: (state) => {
-      state.cartCount += 1;
+    increment: (state, action) => {
+      const proid = action.payload;
+      state.cartItems.forEach((data) => {
+        if (data?.id === proid) {
+          data.count++;
+        }
+      });
     },
-    decrement: (state) => {
-      state.cartCount -= 1;
+    decrement: (state, action) => {
+      const proid = action.payload;
+      state.cartItems.forEach((data) => {
+        if (data?.id === proid) {
+          data.count--;
+        }
+      });
     },
   },
 });

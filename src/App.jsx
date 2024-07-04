@@ -1,13 +1,12 @@
 import { useState } from "react";
-import "./App.css";
-import Header from "./Components/Header/Header";
-import Product from "./Components/Products/Product";
+import { ProductList,Header } from "./Components";
+
 
 function App() {
   return (
     <>
       <Header />
-      <Product />
+      <ProductList />
     </>
   );
 }
